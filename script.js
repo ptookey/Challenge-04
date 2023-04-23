@@ -36,7 +36,11 @@ var question2 = {
     a4: "please help me",
 }
 
-var questionlist = [question1, question2];
+var fullQuestionList = [question1, question2];
+
+var questionlist = [];
+
+questionlist = questionlist.concat(fullQuestionList);
 
 function displayhighscoreScreen() {
     header.style.display = "none";
@@ -95,8 +99,6 @@ function startQuiz() {
     var randomNumberInRange = 0 + randomNumberUpToMax;
     x = Math.floor(randomNumberInRange);
 
-    console.log(x);
-
     activeQuestion.textContent = questionlist[x].question;
     answer1Button.textContent = questionlist[x].a1;
     answer2Button.textContent = questionlist[x].a2;
@@ -111,6 +113,7 @@ function nextQuestion(){
     if (questionlist.length===0) {
         displayResultScreen();
         clearInterval(timeInterval);
+        questionlist = questionlist.concat(fullQuestionList);
         timer.textContent = "";
       } else {
         var x = 0;
@@ -120,9 +123,6 @@ function nextQuestion(){
         var randomNumberInRange = 0 + randomNumberUpToMax;
         x = Math.floor(randomNumberInRange);
 
-
-        console.log(x);
-
         activeQuestion.textContent = questionlist[x].question;
         answer1Button.textContent = questionlist[x].a1;
         answer2Button.textContent = questionlist[x].a2;
@@ -130,7 +130,6 @@ function nextQuestion(){
         answer4Button.textContent = questionlist[x].a4;
 
         questionlist.splice(x,1);
-
     }
 }
 
