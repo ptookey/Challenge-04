@@ -16,6 +16,7 @@ var answer3Button = document.getElementById("answer3");
 var answer4Button = document.getElementById("answer4");
 var submit = document.getElementById("sub");
 var tryAgain = document.getElementById("retry");
+var timeInterval;
 
 var answeredQuestions = [];
 
@@ -49,7 +50,7 @@ function displayhighscoreScreen() {
 function countdown() {
     var timeLeft = 120;
 
-    var timeInterval = setInterval(function() {
+    timeInterval = setInterval(function() {
       timer.textContent = timeLeft+" Seconds Remaining";
       timeLeft--;
       if (timeLeft===-1){
@@ -66,6 +67,7 @@ function startScreenView() {
     questions.style.display = "none";
     resultScreen.style.display = "none";
     highscoreScreen.style.display = "none";
+    timer.textContent = "120 Seconds Remaining";
 }
 
 function displayResultScreen() {
@@ -78,13 +80,13 @@ function displayResultScreen() {
 }
 
 function startQuiz() {
+    countdown();
     header.style.display = "block";
     vhs.style.display = "none";
     startScreen.style.display = "none";
     questions.style.display = "block";
     resultScreen.style.display = "none";
     highscoreScreen.style.display = "none";
-    countdown();
 
     var x = 0;
 
@@ -108,6 +110,8 @@ function nextQuestion(){
 
     if (questionlist.length===0) {
         displayResultScreen();
+        clearInterval(timeInterval);
+        timer.textContent = "";
       } else {
         var x = 0;
 
