@@ -3,22 +3,21 @@
     <head>
         <title>JavaScript Quiz</title>
         <link rel="stylesheet" href="./styles.css">
-        <script src="./script.js"></script>
     </head>
     <body>
-        <header>
+        <header id="header">
             <h1>Coding Test</h1>
             <h2>Timer: 100</h2>
         </header>
-        <div class="vhs">
+        <div id="vhs">
             <button id="viewHighscore">View Highscore</button>
         </div>
-        <div class="startScreen">
+        <div id="startScreen">
             <h1>JavaScript Challenge Quiz</h1>
             <p>Placeholder description of quiz</p>
             <button id="start">Start Quiz</button>
         </div>
-        <div class="questions">
+        <div id="questions">
             <div id="question">
                 <h2>This is the question that asks you which answer out of answer 1, answer 2, answer 3, and answer 4, are the correct answer for this question.</h2>
             </div>
@@ -32,7 +31,7 @@
                 
             </div>
         </div>
-        <div class="resultScreen">
+        <div id="resultScreen">
             <h1>All done</h1>
             <h2>Results</h2>
             <form>
@@ -40,8 +39,25 @@
                     Please enter your initials:
                     <input type="text" id="initials" name="initials">
                 </label>
-                <button type="submit">Submit</button>  
+                <button id="sub">Submit</button>  
             </form>
         </div>
+        <div id="highscoreScreen">
+            <h1>Highscores</h1>
+            <ol>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+            <button id="retry">Try Again</button>
+        </div>
+        <script src="./script.js"></script>
     </body>
 </html>

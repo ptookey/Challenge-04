@@ -25,12 +25,12 @@ header h2 {
 
 /**/
 
-.vhs {
+#vhs {
     margin: 10px;
     margin-left: 30px;
 }
 
-.vhs button {
+#vhs button {
     padding: 5px;
     color: whitesmoke;
     background-color: darkcyan;
@@ -39,20 +39,20 @@ header h2 {
 
 /*This is for the start screen*/
 
-.startScreen {
+#startScreen {
     text-align: center;
     padding: 20px;
 }
 
-.startScreen h1 {
+#startScreen h1 {
     padding: 20px;
 }
 
-.startScreen p {
+#startScreen p {
     padding: 20px;
 }
 
-.startScreen button {
+#startScreen button {
     padding: 5px;
     color: whitesmoke;
     background-color: darkcyan;
@@ -61,14 +61,14 @@ header h2 {
 
 /*This is for the questions section*/
 
-.questions {
+#questions {
     width: 50%;
     margin: auto;
     text-align: center;
     padding: 20px;
 }
 
-.questions h2 {
+#questions h2 {
     padding: 20px;
 }
 
@@ -88,24 +88,24 @@ header h2 {
 
 /*This is for the result screen*/
 
-.resultScreen {
+#resultScreen {
     text-align: center;
     padding: 20px;
 }
 
-.resultScreen h1 {
+#resultScreen h1 {
     padding: 20px;
 }
 
-.resultScreen h2 {
+#resultScreen h2 {
     padding: 20px;
 }
 
-.resultScreen form {
+#resultScreen form {
     padding: 20px;
 }
 
-.resultScreen button {
+#resultScreen button {
     color: whitesmoke;
     background-color: darkcyan;
     border: 2px solid darkblue;
@@ -114,6 +114,33 @@ header h2 {
 
 /*This is for the High Score Screen*/
 
-.highscore {
-    display: contents;
+#highscoreScreen {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    margin-top: 100px;
+}
+
+#highscoreScreen h1 {
+    padding: 20px;
+}
+
+#highscoreScreen ol {
+    margin: 20px;
+}
+
+#highscoreScreen ol li{
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    padding-bottom: 0px;
+    border-bottom: 2px solid darkcyan;
+}
+
+#highscoreScreen button {
+    color: whitesmoke;
+    background-color: darkcyan;
+    border: 2px solid darkblue;
+    padding: 5px;
 }
