@@ -9,12 +9,33 @@ var timer = document.getElementById("timer");
 
 var vhsButton = document.getElementById("viewHighscore");
 var startQuizButton = document.getElementById("start");
+var activeQuestion = document.getElementById("activeQuestion");
 var answer1Button = document.getElementById("answer1");
 var answer2Button = document.getElementById("answer2");
 var answer3Button = document.getElementById("answer3");
 var answer4Button = document.getElementById("answer4");
 var submit = document.getElementById("sub");
 var tryAgain = document.getElementById("retry");
+
+var answeredQuestions = [];
+
+var question1 = {
+    question: "What is the color purple?",
+    a1: "The best",
+    a2: "The worst",
+    a3: "Just Kinda Mid",
+    a4: "Fuck if I know",
+}
+
+var question2 = {
+    question: "What is the square root of pi?",
+    a1: "2",
+    a2: "????",
+    a3: "why?",
+    a4: "please help me",
+}
+
+var questionlist = [question1, question2];
 
 function displayhighscoreScreen() {
     header.style.display = "none";
@@ -47,6 +68,15 @@ function startScreenView() {
     highscoreScreen.style.display = "none";
 }
 
+function displayResultScreen() {
+    header.style.display = "block";
+    vhs.style.display = "none";
+    startScreen.style.display = "none";
+    questions.style.display = "none";
+    resultScreen.style.display = "block";
+    highscoreScreen.style.display = "none";
+}
+
 function startQuiz() {
     header.style.display = "block";
     vhs.style.display = "none";
@@ -55,8 +85,50 @@ function startQuiz() {
     resultScreen.style.display = "none";
     highscoreScreen.style.display = "none";
     countdown();
+
+    var x = 0;
+
+    var randomNumber=Math.random();
+    var randomNumberUpToMax=randomNumber * questionlist.length;
+    var randomNumberInRange = 0 + randomNumberUpToMax;
+    x = Math.floor(randomNumberInRange);
+
+    console.log(x);
+
+    activeQuestion.textContent = questionlist[x].question;
+    answer1Button.textContent = questionlist[x].a1;
+    answer2Button.textContent = questionlist[x].a2;
+    answer3Button.textContent = questionlist[x].a3;
+    answer4Button.textContent = questionlist[x].a4;
+
+    questionlist.splice(x,1);
 }
 
+function nextQuestion(){
+
+    if (questionlist.length===0) {
+        displayResultScreen();
+      } else {
+        var x = 0;
+
+        var randomNumber=Math.random();
+        var randomNumberUpToMax=randomNumber * questionlist.length;
+        var randomNumberInRange = 0 + randomNumberUpToMax;
+        x = Math.floor(randomNumberInRange);
+
+
+        console.log(x);
+
+        activeQuestion.textContent = questionlist[x].question;
+        answer1Button.textContent = questionlist[x].a1;
+        answer2Button.textContent = questionlist[x].a2;
+        answer3Button.textContent = questionlist[x].a3;
+        answer4Button.textContent = questionlist[x].a4;
+
+        questionlist.splice(x,1);
+
+    }
+}
 
 startScreenView();
 
@@ -64,3 +136,7 @@ vhsButton.addEventListener("click",displayhighscoreScreen);
 tryAgain.addEventListener("click", startScreenView);
 startQuizButton.addEventListener("click", startQuiz);
 submit.addEventListener("click", displayhighscoreScreen);
+answer1Button.addEventListener("click", nextQuestion);
+answer2Button.addEventListener("click", nextQuestion);
+answer3Button.addEventListener("click", nextQuestion);
+answer4Button.addEventListener("click", nextQuestion);
