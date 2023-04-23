@@ -1,0 +1,119 @@
+* {
+    background-color: aliceblue;
+    color: darkcyan;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header {
+    display: flexbox;
+    padding: 20px;
+    width: 100%;
+    margin: 10px;
+}
+
+header h1 {
+    display: inline-block;
+}
+
+header h2 {
+    display: inline;
+    float: right;
+}
+
+/**/
+
+.vhs {
+    margin: 10px;
+    margin-left: 30px;
+}
+
+.vhs button {
+    padding: 5px;
+    color: whitesmoke;
+    background-color: darkcyan;
+    border: 2px solid darkblue;
+}
+
+/*This is for the start screen*/
+
+.startScreen {
+    text-align: center;
+    padding: 20px;
+}
+
+.startScreen h1 {
+    padding: 20px;
+}
+
+.startScreen p {
+    padding: 20px;
+}
+
+.startScreen button {
+    padding: 5px;
+    color: whitesmoke;
+    background-color: darkcyan;
+    border: 2px solid darkblue;
+}
+
+/*This is for the questions section*/
+
+.questions {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.questions h2 {
+    padding: 20px;
+}
+
+.answers {
+    padding: 20px;
+}
+
+.answers button {
+    display: block;
+    align-items: left;
+    padding: 5px;
+    margin: 15px;
+    color: whitesmoke;
+    background-color: darkcyan;
+    border: 2px solid darkblue;
+}
+
+/*This is for the result screen*/
+
+.resultScreen {
+    text-align: center;
+    padding: 20px;
+}
+
+.resultScreen h1 {
+    padding: 20px;
+}
+
+.resultScreen h2 {
+    padding: 20px;
+}
+
+.resultScreen form {
+    padding: 20px;
+}
+
+.resultScreen button {
+    color: whitesmoke;
+    background-color: darkcyan;
+    border: 2px solid darkblue;
+    padding: 2px;
+}
+
+/*This is for the High Score Screen*/
+
+.highscore {
+    display: contents;
+}
