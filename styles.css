@@ -89,6 +89,10 @@ header h2 {
     cursor: pointer;
 }
 
+#result {
+    color: darkgray;
+}
+
 /*This is for the result screen*/
 
 #resultScreen {

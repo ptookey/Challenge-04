@@ -18,6 +18,7 @@ var submit = document.getElementById("sub");
 var tryAgain = document.getElementById("retry");
 var initialsInput = document.getElementById("initials");
 var highscorelist = document.getElementById("highscorelist");
+var result = document.getElementById("result");
 
 var score = 0;
 
@@ -363,11 +364,29 @@ function nextQuestion(){
     }
 }
 
+function correct() {
+    result.textContent = "Correct!"
+    var guessTimer = setTimeout(function() {
+      result.textContent = "";
+      clearTimeout(guessTimer);
+    },500)
+}
+
+function incorrect() {
+    result.textContent = "Incorrect!"
+    var guessTimer = setTimeout(function() {
+      result.textContent = "";
+      clearTimeout(guessTimer);
+    },500)
+}
+
 function guessA(){
     if (questionlist[currentQuestion].correct === "A"){
         score++;
+        correct();
     }   else{
         timeLeft = timeLeft-5;
+        incorrect();
     }
     console.log(score);
     nextQuestion();
@@ -376,8 +395,10 @@ function guessA(){
 function guessB(){
     if (questionlist[currentQuestion].correct === "B"){
         score++;
+        correct();
     }   else{
         timeLeft = timeLeft-5;
+        incorrect();
     }
     console.log(score);
     nextQuestion();
@@ -386,8 +407,10 @@ function guessB(){
 function guessC(){
     if (questionlist[currentQuestion].correct === "C"){
         score++;
+        correct();
     }   else{
         timeLeft = timeLeft-5;
+        incorrect();
     }
     console.log(score);
     nextQuestion();
@@ -396,8 +419,10 @@ function guessC(){
 function guessD(){
     if (questionlist[currentQuestion].correct === "D"){
         score++;
+        correct();
     }   else{
         timeLeft = timeLeft-5;
+        incorrect();
     }
     console.log(score);
     nextQuestion();
