@@ -432,8 +432,8 @@ function guessD(){
 
 function loadhighscores(){
 
-    var one = localStorage.getItem("hsInitials");
-    var two = localStorage.getItem("hsScores");
+    one = localStorage.getItem("hsInitials");
+    two = localStorage.getItem("hsScores");
 
     var highscoreInitials = one.split(",");
     var highscores = two.split(",");
@@ -451,8 +451,8 @@ function loadhighscores(){
 
 function displayHighscores(){
 
-    var one = localStorage.getItem("hsInitials");
-    var two = localStorage.getItem("hsScores");
+    one = localStorage.getItem("hsInitials");
+    two = localStorage.getItem("hsScores");
 
     var highscoreInitials = one.split(",");
     var highscores = two.split(",");
@@ -531,8 +531,8 @@ function displayHighscores(){
 
 function submitInitial(){
 
-    var one = localStorage.getItem("hsInitials");
-    var two = localStorage.getItem("hsScores");
+    one = localStorage.getItem("hsInitials");
+    two = localStorage.getItem("hsScores");
 
     var highscoreInitials = one.split(",");
     var highscores = two.split(",");
