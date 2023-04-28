@@ -38,13 +38,15 @@ var currentQuestion = 0;
 var timeInterval;
 var timeLeft;
 
+var one = localStorage.getItem("hsInitials");
+var two = localStorage.getItem("hsScores");
 
-var one = "";
-var two = "";
-
-
-localStorage.getItem("hsInitials");
-localStorage.getItem("hsScores");
+if (one===null){
+    one = ""
+};
+if (two===null){
+    two = ""
+};
 
 
 var question1 = {
@@ -430,8 +432,8 @@ function guessD(){
 
 function loadhighscores(){
 
-    one = one + localStorage.getItem("hsInitials");
-    two = two + localStorage.getItem("hsScores");
+    var one = localStorage.getItem("hsInitials");
+    var two = localStorage.getItem("hsScores");
 
     var highscoreInitials = one.split(",");
     var highscores = two.split(",");
@@ -449,8 +451,8 @@ function loadhighscores(){
 
 function displayHighscores(){
 
-    one = one + localStorage.getItem("hsInitials");
-    two = two + localStorage.getItem("hsScores");
+    var one = localStorage.getItem("hsInitials");
+    var two = localStorage.getItem("hsScores");
 
     var highscoreInitials = one.split(",");
     var highscores = two.split(",");
@@ -529,8 +531,8 @@ function displayHighscores(){
 
 function submitInitial(){
 
-    one = one + localStorage.getItem("hsInitials");
-    two = two + localStorage.getItem("hsScores");
+    var one = localStorage.getItem("hsInitials");
+    var two = localStorage.getItem("hsScores");
 
     var highscoreInitials = one.split(",");
     var highscores = two.split(",");
