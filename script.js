@@ -30,6 +30,7 @@ var highscore7 = document.getElementById("highscore7");
 var highscore8 = document.getElementById("highscore8");
 var highscore9 = document.getElementById("highscore9");
 var clearScores = document.getElementById("reset");
+var minusFive = document.getElementById("five");
 
 var score = 0;
 
@@ -282,17 +283,17 @@ questionlist = questionlist.concat(fullQuestionList);
 
 function countdown() {
 
-    timeLeft = 120
+    timeLeft = 1200
 
     timeInterval = setInterval(function() {
-      timer.textContent = timeLeft+" Seconds Remaining";
+      timer.textContent = Math.floor(timeLeft/10)+" Seconds Remaining";
       timeLeft--;
       if (timeLeft===-1){
         displayResultScreen();
         clearInterval(timeInterval);
         questionlist = questionlist.concat(fullQuestionList);
       }
-    },1000);
+    },100);
   }
 
 function startScreenView() {
@@ -371,15 +372,17 @@ function correct() {
     var guessTimer = setTimeout(function() {
       result.textContent = "";
       clearTimeout(guessTimer);
-    },500)
+    },1000)
 }
 
 function incorrect() {
-    result.textContent = "Incorrect!"
+    result.textContent = "Incorrect!";
+    minusFive.style.visibility = "visible";
     var guessTimer = setTimeout(function() {
-      result.textContent = "";
-      clearTimeout(guessTimer);
-    },500)
+        minusFive.style.visibility = "hidden"
+        result.textContent = "";
+        clearTimeout(guessTimer);
+    },1000)
 }
 
 function guessA(){
@@ -387,7 +390,7 @@ function guessA(){
         score++;
         correct();
     }   else{
-        timeLeft = timeLeft-5;
+        timeLeft = timeLeft-50;
         incorrect();
     }
     console.log(score);
@@ -399,7 +402,7 @@ function guessB(){
         score++;
         correct();
     }   else{
-        timeLeft = timeLeft-5;
+        timeLeft = timeLeft-50;
         incorrect();
     }
     console.log(score);
@@ -411,7 +414,7 @@ function guessC(){
         score++;
         correct();
     }   else{
-        timeLeft = timeLeft-5;
+        timeLeft = timeLeft-50;
         incorrect();
     }
     console.log(score);
@@ -423,7 +426,7 @@ function guessD(){
         score++;
         correct();
     }   else{
-        timeLeft = timeLeft-5;
+        timeLeft = timeLeft-50;
         incorrect();
     }
     console.log(score);
