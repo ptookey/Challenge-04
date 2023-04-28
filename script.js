@@ -19,6 +19,17 @@ var tryAgain = document.getElementById("retry");
 var initialsInput = document.getElementById("initials");
 var highscorelist = document.getElementById("highscorelist");
 var result = document.getElementById("result");
+var highscore0 = document.getElementById("highscore0");
+var highscore1 = document.getElementById("highscore1");
+var highscore2 = document.getElementById("highscore2");
+var highscore3 = document.getElementById("highscore3");
+var highscore4 = document.getElementById("highscore4");
+var highscore5 = document.getElementById("highscore5");
+var highscore6 = document.getElementById("highscore6");
+var highscore7 = document.getElementById("highscore7");
+var highscore8 = document.getElementById("highscore8");
+var highscore9 = document.getElementById("highscore9");
+var clearScores = document.getElementById("reset");
 
 var score = 0;
 
@@ -27,7 +38,9 @@ var currentQuestion = 0;
 var timeInterval;
 var timeLeft;
 
-var highscores = [];
+localStorage.getItem("hsInitials");
+localStorage.getItem("hsScores");
+
 
 var question1 = {
     question: "Inside which HTML element do we put the JavaScript?",
@@ -260,15 +273,6 @@ var questionlist = [];
 
 questionlist = questionlist.concat(fullQuestionList);
 
-function displayhighscoreScreen() {
-    header.style.display = "none";
-    vhs.style.display = "none";
-    startScreen.style.display = "none";
-    questions.style.display = "none";
-    resultScreen.style.display = "none";
-    highscoreScreen.style.display = "block";
-}
-
 function countdown() {
 
     timeLeft = 120
@@ -292,15 +296,6 @@ function startScreenView() {
     resultScreen.style.display = "none";
     highscoreScreen.style.display = "none";
     timer.textContent = "120 Seconds Remaining";
-}
-
-function displayResultScreen() {
-    header.style.display = "block";
-    vhs.style.display = "none";
-    startScreen.style.display = "none";
-    questions.style.display = "none";
-    resultScreen.style.display = "block";
-    highscoreScreen.style.display = "none";
 }
 
 function cycleQuestion(){
@@ -428,16 +423,250 @@ function guessD(){
     nextQuestion();
 }
 
-function submitInitial(){
+function loadhighscores(){
+
+    var one = localStorage.getItem("hsInitials");
+    var two = localStorage.getItem("hsScores");
+
+    var highscoreInitials = one.split(",");
+    var highscores = two.split(",");
+    var currentHighscores = []
+
+    for (var i = 0; i<10; i++){
+        var newObject = {
+            playerInitials: highscoreInitials[i],
+            playerhighscore: +highscores[i],
+        };
+        currentHighscores.push(newObject);
+    }
+    console.log(currentHighscores);
+}
+
+function displayHighscores(){
+
+    var one = localStorage.getItem("hsInitials");
+    var two = localStorage.getItem("hsScores");
+
+    var highscoreInitials = one.split(",");
+    var highscores = two.split(",");
+    var currentHighscores = []
+
+    for (var i = 0; i<10; i++){
+        var newObject = {
+            playerInitials: highscoreInitials[i],
+            playerhighscore: +highscores[i],
+        };
+        currentHighscores.push(newObject);
+    }
+    console.log(currentHighscores);
+
+    if (currentHighscores[0].playerhighscore>0){
+        highscore0.innerText = currentHighscores[0].playerInitials + " - " +currentHighscores[0].playerhighscore;
+    } else {
+        highscore0.innerText = "";
+    }
+
+    if (currentHighscores[1].playerhighscore>0){
+        highscore1.innerText = currentHighscores[1].playerInitials + " - " +currentHighscores[1].playerhighscore;
+    } else {
+        highscore1.innerText = "";
+    }
+
+    if (currentHighscores[2].playerhighscore>0){
+        highscore2.innerText = currentHighscores[2].playerInitials + " - " +currentHighscores[2].playerhighscore;
+    } else {
+        highscore2.innerText = "";
+    }
+
+    if (currentHighscores[3].playerhighscore>0){
+        highscore3.innerText = currentHighscores[3].playerInitials + " - " +currentHighscores[3].playerhighscore;
+    } else {
+        highscore3.innerText = "";
+    }
     
-        var h3 = document.createElement("h3");
-        h3.innerText = initialsInput.value + " - " + score;
-        highscorelist.appendChild(h3);
+    if (currentHighscores[4].playerhighscore>0){
+        highscore4.innerText = currentHighscores[4].playerInitials + " - " +currentHighscores[4].playerhighscore;
+    } else {
+        highscore4.innerText = "";
+    }
+
+    if (currentHighscores[5].playerhighscore>0){
+        highscore5.innerText = currentHighscores[5].playerInitials + " - " +currentHighscores[5].playerhighscore;
+    } else {
+        highscore5.innerText = "";
+    }
+    
+    if (currentHighscores[6].playerhighscore>0){
+        highscore6.innerText = currentHighscores[6].playerInitials + " - " +currentHighscores[6].playerhighscore;
+    } else {
+        highscore6.innerText = "";
+    }
+
+    if (currentHighscores[7].playerhighscore>0){
+        highscore7.innerText = currentHighscores[7].playerInitials + " - " +currentHighscores[7].playerhighscore;
+    } else {
+        highscore7.innerText = "";
+    }
+    
+    if (currentHighscores[8].playerhighscore>0){
+        highscore8.innerText = currentHighscores[8].playerInitials + " - " +currentHighscores[8].playerhighscore;
+    } else {
+        highscore8.innerText = "";
+    }
+    
+    if (currentHighscores[9].playerhighscore>0){
+        highscore9.innerText = currentHighscores[9].playerInitials + " - " +currentHighscores[9].playerhighscore;
+    } else {
+        highscore9.innerText = "";
+    }
+    
+}
+
+function submitInitial(){
+
+    var one = localStorage.getItem("hsInitials");
+    var two = localStorage.getItem("hsScores");
+
+    var highscoreInitials = one.split(",");
+    var highscores = two.split(",");
+    var currentHighscores = []
+
+    for (var i = 0; i<10; i++){
+        var newObject = {
+            playerInitials: highscoreInitials[i],
+            playerhighscore: +highscores[i],
+        };
+        currentHighscores.push(newObject);
+    }
+    console.log(currentHighscores);
+
+    var newScore = {
+        playerInitials: initialsInput.value,
+        playerhighscore: +score,
+    }
+
+    for (var i=0; i<10; i++){
+        if (score>currentHighscores[i].playerhighscore){
+            currentHighscores.splice(i,0,newScore);
+            {break};
+        }
+    }
+
+    currentHighscores.pop();
+
+    if (currentHighscores[0].playerhighscore>0){
+        highscore0.innerText = currentHighscores[0].playerInitials + " - " +currentHighscores[0].playerhighscore;
+    } else {
+        highscore0.innerText = "";
+    }
+
+    if (currentHighscores[1].playerhighscore>0){
+        highscore1.innerText = currentHighscores[1].playerInitials + " - " +currentHighscores[1].playerhighscore;
+    } else {
+        highscore1.innerText = "";
+    }
+
+    if (currentHighscores[2].playerhighscore>0){
+        highscore2.innerText = currentHighscores[2].playerInitials + " - " +currentHighscores[2].playerhighscore;
+    } else {
+        highscore2.innerText = "";
+    }
+
+    if (currentHighscores[3].playerhighscore>0){
+        highscore3.innerText = currentHighscores[3].playerInitials + " - " +currentHighscores[3].playerhighscore;
+    } else {
+        highscore3.innerText = "";
+    }
+    
+    if (currentHighscores[4].playerhighscore>0){
+        highscore4.innerText = currentHighscores[4].playerInitials + " - " +currentHighscores[4].playerhighscore;
+    } else {
+        highscore4.innerText = "";
+    }
+
+    if (currentHighscores[5].playerhighscore>0){
+        highscore5.innerText = currentHighscores[5].playerInitials + " - " +currentHighscores[5].playerhighscore;
+    } else {
+        highscore5.innerText = "";
+    }
+    
+    if (currentHighscores[6].playerhighscore>0){
+        highscore6.innerText = currentHighscores[6].playerInitials + " - " +currentHighscores[6].playerhighscore;
+    } else {
+        highscore6.innerText = "";
+    }
+
+    if (currentHighscores[7].playerhighscore>0){
+        highscore7.innerText = currentHighscores[7].playerInitials + " - " +currentHighscores[7].playerhighscore;
+    } else {
+        highscore7.innerText = "";
+    }
+    
+    if (currentHighscores[8].playerhighscore>0){
+        highscore8.innerText = currentHighscores[8].playerInitials + " - " +currentHighscores[8].playerhighscore;
+    } else {
+        highscore8.innerText = "";
+    }
+    
+    if (currentHighscores[9].playerhighscore>0){
+        highscore9.innerText = currentHighscores[9].playerInitials + " - " +currentHighscores[9].playerhighscore;
+    } else {
+        highscore9.innerText = "";
+    }
+    
+    //works until here
+
+    localStorage.setItem("hsInitials", currentHighscores[0].playerInitials + "," + currentHighscores[1].playerInitials + "," + currentHighscores[2].playerInitials + "," + currentHighscores[3].playerInitials + "," + currentHighscores[4].playerInitials + "," + currentHighscores[5].playerInitials + "," + currentHighscores[6].playerInitials + "," + currentHighscores[7].playerInitials + "," + currentHighscores[8].playerInitials + "," + currentHighscores[9].playerInitials);
+    localStorage.setItem("hsScores", currentHighscores[0].playerhighscore + "," + currentHighscores[1].playerhighscore + "," + currentHighscores[2].playerhighscore + "," + currentHighscores[3].playerhighscore + "," + currentHighscores[4].playerhighscore + "," + currentHighscores[5].playerhighscore + "," + currentHighscores[6].playerhighscore + "," + currentHighscores[7].playerhighscore + "," + currentHighscores[8].playerhighscore + "," + currentHighscores[9].playerhighscore);
+
+
 
     score = 0;
 
     displayhighscoreScreen();
 }
+
+function clearHighscores(){
+
+    localStorage.setItem("hsInitials","");
+    localStorage.setItem("hsScores","");
+
+        highscore0.innerText = "";
+        highscore1.innerText = "";
+        highscore2.innerText = "";
+        highscore3.innerText = "";
+        highscore4.innerText = "";
+        highscore5.innerText = "";
+        highscore6.innerText = "";
+        highscore7.innerText = "";
+        highscore8.innerText = "";
+        highscore9.innerText = "";
+
+    
+}
+
+function displayResultScreen() {
+    header.style.display = "block";
+    vhs.style.display = "none";
+    startScreen.style.display = "none";
+    questions.style.display = "none";
+    resultScreen.style.display = "block";
+    highscoreScreen.style.display = "none";
+}
+
+function displayhighscoreScreen() {
+    displayHighscores();
+    header.style.display = "none";
+    vhs.style.display = "none";
+    startScreen.style.display = "none";
+    questions.style.display = "none";
+    resultScreen.style.display = "none";
+    highscoreScreen.style.display = "block";
+}
+
+
+
+loadhighscores();
 
 startScreenView();
 
@@ -449,3 +678,4 @@ answer1Button.addEventListener("click", guessA);
 answer2Button.addEventListener("click", guessB);
 answer3Button.addEventListener("click", guessC);
 answer4Button.addEventListener("click", guessD);
+clearScores.addEventListener("click", clearHighscores)
