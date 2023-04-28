@@ -435,6 +435,13 @@ function loadhighscores(){
     one = localStorage.getItem("hsInitials");
     two = localStorage.getItem("hsScores");
 
+    if (one===null){
+        one = ""
+    };
+    if (two===null){
+        two = ""
+    };
+
     var highscoreInitials = one.split(",");
     var highscores = two.split(",");
     var currentHighscores = []
@@ -453,6 +460,13 @@ function displayHighscores(){
 
     one = localStorage.getItem("hsInitials");
     two = localStorage.getItem("hsScores");
+
+    if (one===null){
+        one = ""
+    };
+    if (two===null){
+        two = ""
+    };
 
     var highscoreInitials = one.split(",");
     var highscores = two.split(",");
@@ -533,6 +547,13 @@ function submitInitial(){
 
     one = localStorage.getItem("hsInitials");
     two = localStorage.getItem("hsScores");
+
+    if (one===null){
+        one = ""
+    };
+    if (two===null){
+        two = ""
+    };
 
     var highscoreInitials = one.split(",");
     var highscores = two.split(",");
