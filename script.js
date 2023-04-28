@@ -559,7 +559,11 @@ function submitInitial(){
         }
     }
 
+    console.log(currentHighscores);
+
     currentHighscores.pop();
+
+    console.log(currentHighscores);
 
     if (currentHighscores[0].playerhighscore>0){
         highscore0.innerText = currentHighscores[0].playerInitials + " - " +currentHighscores[0].playerhighscore;
